@@ -112,7 +112,13 @@ INSTALLED_APPS += ["anymail"]  # noqa F405
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
 # https://anymail.readthedocs.io/en/stable/esps
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND=env("EMAIL_BACKEND")
+EMAIL_HOST=env("EMAIL_HOST")
+EMAIL_USE_TLS=env("EMAIL_USE_TLS")
+EMAIL_PORT=env("EMAIL_PORT")
+EMAIL_HOST_PASSWORD=env("EMAIL_HOST_PASSWORD")
+EMAIL_HOST_USER=env("EMAIL_HOST_USER")
+
 ANYMAIL = {}
 
 
