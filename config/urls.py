@@ -32,7 +32,6 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
-    path("api/", include("django_pro1_iot.iotdevices.urls")),
 ]
 
 if settings.DEBUG:
