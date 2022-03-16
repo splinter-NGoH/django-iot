@@ -32,6 +32,10 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    # basic auth login, logot, signup
+    path("api/user/", include("django_pro1_iot.users.api.urls")),
+
+
 ]
 
 if settings.DEBUG:
