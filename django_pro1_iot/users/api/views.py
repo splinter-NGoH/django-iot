@@ -4,10 +4,10 @@ from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from .serializers import UserSerializer, UserRegistrationSerializer
 from rest_framework.authtoken.models import Token
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 
 User = get_user_model()
 
@@ -46,3 +46,10 @@ def user_registration_view(request):
 
         return Response(data, status= status.HTTP_201_CREATED)
 
+
+@api_view(['POST',])
+@permission_classes([IsAuthenticated])
+def logut_view (request):
+    if request.method == 'POST':
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
