@@ -31,7 +31,7 @@ certificatesResolvers:
 http:
   routers:
     web-secure-router:
-      rule: "Host(`metanoiafab.com`) || Host(`www.metanoiafab.com`)"
+      rule: "Host(`django-iot-project-1.herokuapp.com`) || Host(`www.django-iot-project-1.herokuapp.com`)"
       entryPoints:
         - web-secure
       middlewares:
@@ -42,7 +42,7 @@ http:
         certResolver: letsencrypt
 
     flower-secure-router:
-      rule: "Host(`metanoiafab.com`)"
+      rule: "Host(`django-iot-project-1.herokuapp.com`)"
       entryPoints:
         - flower
       service: flower

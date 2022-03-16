@@ -81,6 +81,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "django_pro1_iot.users",
     # Your stuff: custom apps go here
+    "django_pro1_iot.iotdevices",
+
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -320,8 +322,8 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SERVERS": [
+        {"url": "https://django-iot-project-1.herokuapp.com", "description": "Production server"},
         {"url": "http://127.0.0.1:8000", "description": "Local Development server"},
-        {"url": "https://metanoiafab.com", "description": "Production server"},
     ],
 }
 # Your stuff...
