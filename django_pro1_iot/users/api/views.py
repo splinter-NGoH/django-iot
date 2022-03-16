@@ -52,4 +52,5 @@ def user_registration_view(request):
 def logut_view (request):
     if request.method == 'POST':
         request.user.auth_token.delete()
-        return Response(status=status.HTTP_200_OK)
+        data = {"Token Deleted": "kda anta logedout, a7b afakrk al b3na 5esr dl3na"}
+        return Response(data,status=status.HTTP_200_OK)
