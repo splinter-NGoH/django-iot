@@ -42,6 +42,27 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': "django_pro1_iot",
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'Casherboy1',
+
+        'HOST': '127.0.0.1',
+
+        'PORT': '5432',
+
+    }
+
+}
+
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -79,11 +100,16 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "django_pro1_iot.users",
     # Your stuff: custom apps go here
+    "django_pro1_iot.users",
     "django_pro1_iot.iotdevices",
+    "django_pro1_iot.rooms",
+
 
 ]
+MQTT_ACL_ALLOW = False
+MQTT_ACL_ALLOW_ANONIMOUS = MQTT_ACL_ALLOW
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -261,7 +287,7 @@ if USE_TZ:
     # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-timezone
     CELERY_TIMEZONE = TIME_ZONE
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-broker_url
-CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+CELERY_BROKER_URL = env("CELERY_BROKER_URL", default="http://localhost:8000")
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-result_backend
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
 # http://docs.celeryproject.org/en/latest/userguide/configuration.html#std:setting-accept_content

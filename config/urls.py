@@ -34,6 +34,7 @@ urlpatterns += [
     ),
     # basic auth login, logot, signup
     path("api/user/", include("django_pro1_iot.users.api.urls")),
+    path("api/iotdevices/", include("django_pro1_iot.iotdevices.api.urls")),
 
 
 ]
