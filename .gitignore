@@ -276,4 +276,3 @@ django_pro1_iot/media/
 .ipython/
 .env
 .envs/*
-!.envs/.local/
