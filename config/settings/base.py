@@ -43,25 +43,16 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 DATABASES = {"default": env.db("DATABASE_URL")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
-DATABASES = {
-
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': "django_pro1_iot",
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'Casherboy1',
-
-        'HOST': '127.0.0.1',
-
-        'PORT': '5432',
-
-    }
-
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "django_pro1_iot",
+#         "USER": "postgres",
+#         "PASSWORD": "Casherboy1",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
+#     }
+# }
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -104,8 +95,6 @@ LOCAL_APPS = [
     "django_pro1_iot.users",
     "django_pro1_iot.iotdevices",
     "django_pro1_iot.rooms",
-
-
 ]
 MQTT_ACL_ALLOW = False
 MQTT_ACL_ALLOW_ANONIMOUS = MQTT_ACL_ALLOW
@@ -344,7 +333,10 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SERVERS": [
-        {"url": "https://django-iot-project-1.herokuapp.com", "description": "Production server"},
+        {
+            "url": "https://django-iot-project-1.herokuapp.com",
+            "description": "Production server",
+        },
         {"url": "http://127.0.0.1:8000", "description": "Local Development server"},
     ],
 }
